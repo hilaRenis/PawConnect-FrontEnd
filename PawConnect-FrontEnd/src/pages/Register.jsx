@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Register = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,10 +44,10 @@ const Register = () => {
   return (
     <Box
       sx={{
-        position: 'absolute', 
+        position: 'absolute',
         top: '50%',
         left: '50%',
-        transform: 'translate(-50%, -50%)', 
+        transform: 'translate(-50%, -50%)',
         maxWidth: 400,
         width: '100%',
         padding: 3,
@@ -55,7 +57,7 @@ const Register = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: 2,
-        backgroundColor: 'white', 
+        backgroundColor: 'white',
       }}
     >
       <Typography variant="h5" textAlign="center" marginBottom={2}>
@@ -110,8 +112,19 @@ const Register = () => {
         color="primary"
         fullWidth
         sx={{ padding: '10px 0' }}
+        onClick={handleSubmit}
       >
         Register
+      </Button>
+
+      <Button
+        variant="outlined"
+        color="secondary"
+        fullWidth
+        sx={{ padding: '10px 0' }}
+        onClick={() => navigate('/')}
+      >
+        Go to HomePage
       </Button>
     </Box>
   );

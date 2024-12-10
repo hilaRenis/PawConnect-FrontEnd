@@ -1,21 +1,74 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Box, Typography, Button } from '@mui/material';
 
 function Home() {
   return (
-    <div>
-      <h1>Welcome to PawConnect</h1>
-      <p>
-        PawConnect is a platform dedicated to locating, adopting, and rescuing stray animals. 
-        Join us to help make a difference!
-      </p>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
-      <Link to="/register">
-        <button>Register</button>
-      </Link>
-    </div>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%', // Siguro që mbulon gjithë gjerësinë
+        height: '100vh', // Lartësia e të gjithë ekranit
+        textAlign: 'center',
+        padding: 2,
+        backgroundImage: "url('/petphoto.jpeg')", // Rruga e saktë për imazhin
+        backgroundSize: 'cover', // Bëhet "stretch" për të mbushur ekranin
+        backgroundPosition: 'center', // Mban qendrën e imazhit
+        backgroundRepeat: 'no-repeat',
+        position: 'relative',
+      }}
+    >
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+          zIndex: 1,
+        }}
+      ></Box>
+
+      <Box
+        sx={{
+          position: 'relative',
+          zIndex: 2,
+          color: 'white',
+        }}
+      >
+        <Typography variant="h3" component="h1" gutterBottom>
+          Welcome to PawConnect
+        </Typography>
+        <Typography variant="body1" sx={{ maxWidth: 600, marginBottom: 4 }}>
+          PawConnect is a platform dedicated to locating, adopting, and rescuing stray animals. 
+          Join us to help make a difference!
+        </Typography>
+        <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
+          <Button
+            component={Link}
+            to="/login"
+            variant="contained"
+            color="primary"
+            size="large"
+          >
+            Login
+          </Button>
+          <Button
+            component={Link}
+            to="/register"
+            variant="outlined"
+            color="primary"
+            size="large"
+          >
+            Register
+          </Button>
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
