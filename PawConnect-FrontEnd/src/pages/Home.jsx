@@ -10,17 +10,16 @@ function Home() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '100%', // Siguro që mbulon gjithë gjerësinë
-        height: '100vh', // Lartësia e të gjithë ekranit
-        textAlign: 'center',
-        padding: 2,
-        backgroundImage: "url('/petphoto.jpeg')", // Rruga e saktë për imazhin
-        backgroundSize: 'cover', // Bëhet "stretch" për të mbushur ekranin
-        backgroundPosition: 'center', // Mban qendrën e imazhit
-        backgroundRepeat: 'no-repeat',
-        position: 'relative',
+        width: '100vw', 
+        height: '100vh', 
+        backgroundImage: "url('/petphoto.jpeg')",
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center', 
+        backgroundRepeat: 'no-repeat', 
+        position: 'relative', 
       }}
     >
+
       <Box
         sx={{
           position: 'absolute',
@@ -28,16 +27,18 @@ function Home() {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)', 
-          zIndex: 1,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 1, 
         }}
       ></Box>
 
       <Box
         sx={{
-          position: 'relative',
-          zIndex: 2,
-          color: 'white',
+          position: 'relative', 
+          zIndex: 2, 
+          textAlign: 'center', 
+          color: 'white', 
+          padding: 2,
         }}
       >
         <Typography variant="h3" component="h1" gutterBottom>
@@ -73,3 +74,4 @@ function Home() {
 }
 
 export default Home;
+
