@@ -4,9 +4,7 @@ function AdminDashboard() {
   return (
     <div>
       <h2>Admin Dashboard</h2>
-      <button>Create User Account</button>
-      <button>Create Agency Account</button>
-      <button>View All Reports</button>
+      <button>Create Account</button>
       <button>Manage Posts</button>
     </div>
   );
