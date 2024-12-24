@@ -41,7 +41,7 @@ function UserAccountManagementPage() {
           </Typography>
           <Box sx={{ display: 'flex', gap: 2 }}>
             <Button color="inherit" onClick={() => navigate('/user-account-management')}>
-              User Account Management
+              Create Account
             </Button>
             <Button color="inherit" onClick={() => console.log('Navigate to Manage Posts')}>
               Manage Posts
