@@ -39,6 +39,10 @@ function UserDashboardPage() {
     navigate('/chat'); 
   };
 
+  const handleGoToAnnouncements = () => {
+    navigate('/announcement');
+  };
+
   return (
     <div>
       <AppBar position="fixed" sx={{ backgroundColor: '#1976d2', width: '100%' }}>
@@ -52,6 +56,9 @@ function UserDashboardPage() {
             </Button>
             <Button color="inherit" onClick={handleGoToChatPage}>
               Chat Page
+            </Button>
+            <Button color="inherit" onClick={handleGoToAnnouncements}>
+              Announcements
             </Button>
             <Button color="inherit" onClick={handleLogout}>
               Logout

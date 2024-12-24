@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 function ChatPage() {
   const navigate = useNavigate();
 
-  const handleGoToUserDashboard = () => {
-    navigate('/user-dashboard');
+  const handleGoToAdminDashboard = () => {
+    navigate('/admin-dashboard');
   };
 
   const handleLogout = () => {
@@ -24,7 +24,7 @@ function ChatPage() {
             Chat Page
           </Typography>
           <Box sx={{ display: 'flex', gap: 2 }}>
-            <Button color="inherit" onClick={handleGoToUserDashboard}>
+            <Button color="inherit" onClick={handleGoToAdminDashboard}>
               Home
             </Button>
             <Button color="inherit" onClick={handleLogout}>
