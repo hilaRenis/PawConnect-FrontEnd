@@ -39,6 +39,14 @@ function AdminDashboard() {
     navigate('/admin-dashboard'); 
   };
 
+  const handleGoToAnnouncements = () => {
+    navigate('/announcement');
+  };
+
+  const handleGoToChatPage = () => {
+    navigate('/chat');
+  };
+
   return (
     <div>
       <AppBar position="fixed" sx={{ backgroundColor: '#1976d2', width: '100%' }}>
@@ -47,14 +55,17 @@ function AdminDashboard() {
             Admin Dashboard
           </Typography>
           <Box sx={{ display: 'flex', gap: 2 }}>
-            <Button color="inherit" onClick={handleCreateAccount}>
-              Create Account
-            </Button>
             <Button color="inherit" onClick={handleGoToAdminDashboard}> 
               Home
             </Button>
-            <Button color="inherit" onClick={() => console.log('Navigate to Manage Posts')}>
-              Manage Posts
+            <Button color="inherit" onClick={handleCreateAccount}>
+              Create Account
+            </Button>
+            <Button color="inherit" onClick={handleGoToAnnouncements}>
+              Announcements
+            </Button>
+            <Button color="inherit" onClick={handleGoToChatPage}>
+              Chat Page
             </Button>
             <Button color="inherit" onClick={handleLogout}>
               Logout

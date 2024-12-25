@@ -11,7 +11,6 @@ function UserDashboard() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here, you would send the data to an API to store the announcement
     alert('Pet details submitted!');
   };
 
