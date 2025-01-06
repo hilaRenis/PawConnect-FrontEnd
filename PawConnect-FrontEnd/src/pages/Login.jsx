@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
+import UserAPI from '../APIs/PawConnectBE/UserAPI';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,13 +16,34 @@ const Login = () => {
       return;
     }
 
-    if (email === 'user@example.com' && password === 'password') {
-      navigate('/user-dashboard');
-    } else if (email === 'agency@example.com' && password === 'password') {
-      navigate('/agency-dashboard');
-    } else {
-      setError('Invalid credentials');
-    }
+    // if (email === 'user@example.com' && password === 'password') {
+    //   navigate('/user-dashboard');
+    // } else if (email === 'agency@example.com' && password === 'password') {
+    //   navigate('/agency-dashboard');
+    // } else {
+    //   setError('Invalid credentials');
+    // }
+    UserAPI.login(email, password)
+    .then((response)=>{
+      if(response.ok)
+      {
+        response.text()
+        .then((data)=>{
+          console.log(data);
+        })
+      }
+      else
+      {
+        console.log("Incorrect username or password")
+      }
+    } )
+    .catch((error)=>{
+      console.log("network error, " + {error});
+    })
+
+
+
+
   };
 
   return (
