@@ -16,34 +16,39 @@ const Login = () => {
       return;
     }
 
-    if (email === 'user@example.com' && password === 'password') {
-      navigate('/user-dashboard');
-    } else if (email === 'agency@example.com' && password === 'password') {
+    if(email === 'agency@example.com' && password === 'password') 
+    {
       navigate('/agency-dashboard');
-    } else {
-      setError('Invalid credentials');
     }
-    // UserAPI.login(email, password)
-    // .then((response)=>{
-    //   if(response.ok)
-    //   {
-    //     response.text()
-    //     .then((jwtToken)=>{
-    //       localStorage.setItem('token', jwtToken)
-    //       console.log("Token saved in localstorage");
+    else if (email === 'admin@example.com' && password === 'password')
+    {
+      navigate('/admin-dashboard');
+    }
+    else 
+    {
+      UserAPI.login(email, password)
+      .then((response)=>{
+        if(response.ok)
+        {
+          response.text()
+          .then((jwtToken)=>{
+            localStorage.setItem('token', jwtToken)
+            console.log("Token saved in localstorage");
+            navigate('/user-dashboard');
+  
+          })
+        }
+        else
+        {
+          console.log("Incorrect username or password")
+        }
+      } )
+      .catch((error)=>{
+        console.log("network error, " + {error});
+      })
+  
 
-    //     })
-    //   }
-    //   else
-    //   {
-    //     console.log("Incorrect username or password")
-    //   }
-    // } )
-    // .catch((error)=>{
-    //   console.log("network error, " + {error});
-    // })
-
-
+    }
 
 
   };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
+import UserAPI from '../APIs/PawConnectBE/UserAPI';
 const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -32,13 +32,33 @@ const Register = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => 
+    {
     e.preventDefault();
     if (!validate()) return;
 
-    console.log('User Registered:', formData);
-    alert('Registration Successful!');
-    setFormData({ username: '', fullName: '', email: '', password: '' }); // Clear form
+    UserAPI.signUp(formData.username, formData.password, formData.fullName, formData.email)
+    .then((response)=>{
+      if(response.ok) 
+      {
+        console.log('User Registered:', formData);
+        alert('Registration Successful!');
+        setFormData({ username: '', fullName: '', email: '', password: '' }); // Clear form
+
+      }
+      else{
+        console.log('Registration failed:', formData);
+        alert('Registration failed!');
+
+      }
+    })
+    .catch((error)=>{
+      console.log("network error, " + {error});
+    })
+
+
+
+    
   };
 
   return (
