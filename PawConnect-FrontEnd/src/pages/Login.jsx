@@ -16,30 +16,32 @@ const Login = () => {
       return;
     }
 
-    // if (email === 'user@example.com' && password === 'password') {
-    //   navigate('/user-dashboard');
-    // } else if (email === 'agency@example.com' && password === 'password') {
-    //   navigate('/agency-dashboard');
-    // } else {
-    //   setError('Invalid credentials');
-    // }
-    UserAPI.login(email, password)
-    .then((response)=>{
-      if(response.ok)
-      {
-        response.text()
-        .then((data)=>{
-          console.log(data);
-        })
-      }
-      else
-      {
-        console.log("Incorrect username or password")
-      }
-    } )
-    .catch((error)=>{
-      console.log("network error, " + {error});
-    })
+    if (email === 'user@example.com' && password === 'password') {
+      navigate('/user-dashboard');
+    } else if (email === 'agency@example.com' && password === 'password') {
+      navigate('/agency-dashboard');
+    } else {
+      setError('Invalid credentials');
+    }
+    // UserAPI.login(email, password)
+    // .then((response)=>{
+    //   if(response.ok)
+    //   {
+    //     response.text()
+    //     .then((jwtToken)=>{
+    //       localStorage.setItem('token', jwtToken)
+    //       console.log("Token saved in localstorage");
+
+    //     })
+    //   }
+    //   else
+    //   {
+    //     console.log("Incorrect username or password")
+    //   }
+    // } )
+    // .catch((error)=>{
+    //   console.log("network error, " + {error});
+    // })
 
 
 
